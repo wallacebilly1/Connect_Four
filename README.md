@@ -2,10 +2,10 @@
 #### M1 Paired Project for Jared, Grant and Billy
 
 ## Background
-Connect Four is a classic board game where players take turns trying to create a line of four of their own pieces without being blocked by their opponent. The game ends when one of the two players successfully lines up four of their pieces horizontally, vertically, or diagonally and wins, or in a draw if the 7-column, 6-row grid is filled without either player successfully connecting four pieces. For more information, see the [wikipedia page.]([url(https://en.wikipedia.org/wiki/Connect_Four))
+Connect Four is a classic board game where players take turns trying to create a line of four of their own pieces without being blocked by their opponent. The game ends when one of the two players successfully lines up four of their pieces horizontally, vertically, or diagonally and wins, or in a draw if the 7-column, 6-row grid is filled without either player successfully connecting four pieces. For more information, see the [wikipedia page.](https://en.wikipedia.org/wiki/Connect_Four)
 
 ## Define the Relationship
-[Link]([url](https://docs.google.com/document/d/1PoO11jP4w_6_PDE6iA2xUt1byjFnKn1iTOVzOwEFruo/edit)https://docs.google.com/document/d/1PoO11jP4w_6_PDE6iA2xUt1byjFnKn1iTOVzOwEFruo/edit)
+[Link](https://docs.google.com/document/d/1PoO11jP4w_6_PDE6iA2xUt1byjFnKn1iTOVzOwEFruo/edit)
 
 ## Project Requirements
 ### Iteration 1 - Game Board
