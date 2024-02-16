@@ -30,4 +30,8 @@ RSpec.describe Player do
 		end
 	end
 
+	describe '#choose_column' do
+		# no test because it involves user input
+	end
+
 end
