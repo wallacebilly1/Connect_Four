@@ -8,5 +8,9 @@ RSpec.describe Game do
     it 'exists' do
       expect(game).to be_instance_of(Game)
     end
+
+    it 'has no current_player by default' do
+      expect(game.current_player).to be nil
+    end
   end
 end
