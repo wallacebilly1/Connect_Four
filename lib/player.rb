@@ -14,4 +14,8 @@ class Player
 		end
 	end
 
+	def choose_column
+		gets.chomp
+	end
+
 end
