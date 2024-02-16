@@ -38,4 +38,16 @@ RSpec.describe Game do
       expect(game.current_player.name).to eq('Player')
     end
   end
+
+  describe '#change_current_player' do
+    it 'changes the current player' do
+      game.create_players
+
+      expect(game.current_player.name).to eq('Player')
+
+      game.change_current_player
+
+      expect(game.current_player.name).to eq('Computer')
+    end
+  end
 end
