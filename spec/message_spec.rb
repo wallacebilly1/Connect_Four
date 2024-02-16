@@ -11,8 +11,9 @@ RSpec.describe Message do
         end
 
         it 'properly displays welcome message' do
+            expect(message.welcome_message).to be_an_instance_of String
         end
-
+        
     end
 
 end
