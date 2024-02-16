@@ -12,6 +12,11 @@ RSpec.describe Player do
 		it 'starts with "computer" as the player name' do
 			expect(player.name).to eq "Computer"
 		end
+
+		it 'can change the name when initialized with a name' do
+			user = Player.new("Jared")
+			expect(user.name).to eq "Jared"
+		end
   end
 
 	describe '' do
