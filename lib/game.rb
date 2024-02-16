@@ -16,4 +16,9 @@ class Game
     # changes current_player
     # loop
   end
+
+  def create_players
+    @players << Player.new('Player')
+    @players << Player.new
+  end
 end
