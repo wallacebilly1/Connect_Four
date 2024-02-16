@@ -19,4 +19,15 @@ RSpec.describe Game do
       # 
     end
   end
+
+  describe '#create_players' do
+    it 'can create two player objects with the names Player and Computer' do
+      expect(game.players).to eq([])
+
+      game.create_players
+
+      expect(game.players[0].name).to eq ('Player')
+      expect(game.players[1].name).to eq ('Computer')
+    end
+  end
 end
