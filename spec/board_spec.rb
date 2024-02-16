@@ -11,4 +11,10 @@ RSpec.describe Board do
       expect(board.board).to be_instance_of(Hash)
     end
   end
+
+  describe '#print_board' do
+    it 'prints the board to terminal' do
+      expect(board.print_board).to be_instance_of(String)
+    end
+  end
 end
