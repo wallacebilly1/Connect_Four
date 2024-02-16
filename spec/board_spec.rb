@@ -27,6 +27,15 @@ RSpec.describe Board do
 			expect(board.board["A"][0]).to eq "X"
 		end
 
+		it 'can accept multiple pieces in the same column and update board' do
+			player = Player.new("Billy")
+			board.update_board("A", player)
+			board.update_board("A", player)
+
+			expect(board.board["A"][0]).to eq "X"
+			expect(board.board["A"][1]).to eq "X"
+		end
+
 	end
 
 end
