@@ -14,14 +14,19 @@ RSpec.describe Player do
 		end
 
 		it 'can change the name when initialized with a name' do
-			user = Player.new("Jared")
-			expect(user.name).to eq "Jared"
+			player = Player.new("Jared")
+			expect(player.name).to eq "Jared"
+		end
+
+		it 'starts with "O" as the default piece' do
+			expect(player.piece).to eq "O"
 		end
   end
 
-	describe '' do
-		it ' ' do
-			
+	describe '#choose_piece' do
+		it 'can change piece to "X" if player name is not "Computer"' do
+			player = Player.new("Grant")
+			expect(player.piece).to eq "X"
 		end
 	end
 
