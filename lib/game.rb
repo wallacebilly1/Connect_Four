@@ -25,4 +25,8 @@ class Game
   def current_player
     @players[0]
   end
+
+  def change_current_player
+    @players.rotate!
+  end
 end
