@@ -21,4 +21,8 @@ class Game
     @players << Player.new('Player')
     @players << Player.new
   end
+
+  def current_player
+    @players[0]
+  end
 end
