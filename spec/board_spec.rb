@@ -24,7 +24,7 @@ RSpec.describe Board do
 		it 'takes in a column and updates the array associated with that column' do
 			player = Player.new("Billy")
 			board.update_board("A")
-			expect(board["A"][0]).to eq "X"
+			expect(board.board["A"][0]).to eq "X"
 		end
 
 	end
