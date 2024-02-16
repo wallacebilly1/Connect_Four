@@ -1,1 +1,7 @@
-require './spec_helper.rb'
+require 'spec_helper.rb'
+
+RSpec.describe Player do
+
+
+
+end
