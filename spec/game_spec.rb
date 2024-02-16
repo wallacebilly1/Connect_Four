@@ -30,4 +30,12 @@ RSpec.describe Game do
       expect(game.players[1].name).to eq ('Computer')
     end
   end
+
+  describe '#current_player' do
+    it 'has a current_player' do 
+      game.create_players
+
+      expect(game.current_player.name).to eq('Player')
+    end
+  end
 end
