@@ -24,10 +24,10 @@ class Board
     #{board["A"][0]} | #{board["B"][0]} | #{board["C"][0]} | #{board["D"][0]} | #{board["E"][0]} | #{board["F"][0]} | #{board["G"][0]}"
   end
 
-  def update_board(letter)
+  def update_board(letter, player)
     available_row = @board[letter].find_index do |row|
       row == "."
     end
-    @board[letter][available_row] = "X"
+    @board[letter][available_row] = player.piece
   end
 end
