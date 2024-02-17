@@ -15,6 +15,10 @@ RSpec.describe Message do
       expect(message.welcome).to be_an_instance_of String
     end
 
+    it 'properly displays #invalid_command message' do
+      expect(message.invalid_command).to be_an_instance_of String
+    end
+
     it 'properly displays #choose_column message' do
       expect(message.choose_column).to be_an_instance_of String
     end
@@ -28,7 +32,7 @@ RSpec.describe Message do
     end
 
     it 'properly displays #win message' do
-      expect(message.win(player)).to be_an_instance_of String
+      expect(message.win("Player")).to be_an_instance_of String
     end
 
     it 'properly displays #draw message' do
