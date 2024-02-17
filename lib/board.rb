@@ -1,5 +1,5 @@
 class Board
-  attr_reader :visual
+  attr_reader :visual, :last_piece_played
 
   def initialize
     @visual = {
@@ -11,6 +11,7 @@ class Board
       "F" => %w[. . . . . .],
       "G" => %w[. . . . . .]
     }
+    @last_piece_played = last_piece_played
   end
 
   def print_visual
@@ -29,5 +30,6 @@ class Board
       row == "."
     end
     @visual[letter][available_row] = player.piece
+    @last_piece_played = [letter, available_row]
   end
 end
