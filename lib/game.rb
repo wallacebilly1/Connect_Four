@@ -7,6 +7,24 @@ class Game
     @message_bot = Message.new
   end
 
+  def start
+    puts @message_bot.welcome
+    answer = gets.chomp.downcase
+    condition = false
+    until condition == true do
+      if answer == "p"
+        condition = true
+        take_turn
+      elsif answer == "q"
+        condition = true
+        exit
+      else
+        puts @message_bot.invalid_command
+        answer = gets.chomp.downcase
+      end
+    end
+  end
+
   def take_turn
     # says whose turn it is
     puts @message_bot.current_player_turn(current_player.name)
