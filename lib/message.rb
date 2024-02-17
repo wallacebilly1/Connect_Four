@@ -20,4 +20,8 @@ class Message
         "Congratulations, #{player}! You are the CONNECT FOUR champion!"
     end
 
+    def draw
+        "There are no more valid placements. This game is a draw."
+    end
+
 end
