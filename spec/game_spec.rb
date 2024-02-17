@@ -50,4 +50,14 @@ RSpec.describe Game do
       expect(game.current_player.name).to eq('Computer')
     end
   end
+
+  describe '#is_valid_column?' do
+    it 'can check if the input is a valid column' do
+      expect(game.is_valid_column?("H")).to be false
+
+      expect(game.is_valid_column?("G1")).to be false
+
+      expect(game.is_valid_column?("A")).to be true
+    end
+  end
 end
