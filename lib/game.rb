@@ -33,6 +33,12 @@ class Game
     take_turn
   end
 
+  def computer_take_turn
+    %w[A B C D E F G].select do |column|
+      is_valid?(column)
+    end.sample
+  end
+
   def create_players
     [Player.new('Player'), Player.new]
   end
