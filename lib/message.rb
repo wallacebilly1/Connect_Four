@@ -15,6 +15,10 @@ class Message
     "It is currently #{player}'s turn."
   end
 
+  def last_piece_played(last_piece)
+    "The last piece played was #{last_piece}"
+  end
+
   def choose_again
     "That is not a valid placement. Please choose again."
   end
