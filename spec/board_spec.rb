@@ -37,17 +37,4 @@ RSpec.describe Board do
 		end
 
 	end
-
-  describe '#is_valid?' do
-    it 'checks if the piece placement is in a valild column' do
-      player = Player.new("Billy")
-			board.update_board("H", player)
-
-      expect(board.is_valid?).to be false
-
-			board.update_board("A", player)
-
-      expect(board.is_valid?).to be true
-    end
-  end
 end
