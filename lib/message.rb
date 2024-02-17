@@ -3,12 +3,20 @@ class Message
     "Welcome to CONNECT FOUR\nEnter p to play, enter q to quit."
   end
 
+  def invalid_command
+    "Invalid command. Please enter either 'p' or 'q'"
+  end
+
   def choose_column
     "Please choose a column (A-G) to place your piece."
   end
 
   def current_player_turn(player)
     "It is currently #{player}'s turn."
+  end
+
+  def last_piece_played(last_piece)
+    "The last piece was played in column #{last_piece[0]}"
   end
 
   def choose_again
