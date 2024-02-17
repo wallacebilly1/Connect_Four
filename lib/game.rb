@@ -4,10 +4,12 @@ class Game
   def initialize
     @board = Board.new
     @players = []
+    @message_bot = Message.new
   end
 
   def take_turn
     # says whose turn it is
+    @message_bot.current_player_turn(current_player)
     # prints current state of board
     # requests a column
     # checks to see if the user input is valid
