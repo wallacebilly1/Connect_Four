@@ -2,7 +2,7 @@ require 'spec_helper.rb'
 
 RSpec.describe Game do
 
-  let (:game) {Game.new(Board.new)}
+  let (:game) {Game.new}
 
   describe '#initialize' do
     it 'exists' do
@@ -64,15 +64,15 @@ RSpec.describe Game do
   describe '#is_column_full?' do
     it 'can check if the chosen column is full' do
       player = Player.new("Billy")
-			board.update_board("A", player)
-			board.update_board("A", player)
-			board.update_board("A", player)
+			game.board.update_board("A", player)
+			game.board.update_board("A", player)
+			game.board.update_board("A", player)
 
       expect(game.is_column_full?("A")).to be false
 
-			board.update_board("A", player)
-			board.update_board("A", player)
-			board.update_board("A", player)
+			game.board.update_board("A", player)
+			game.board.update_board("A", player)
+			game.board.update_board("A", player)
 
       expect(game.is_column_full?("A")).to be true
     end
