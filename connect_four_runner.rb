@@ -9,6 +9,4 @@ require './lib/player.rb'
 
 game = Game.new
 
-game.create_players
-
-puts game.take_turn
+game.start
