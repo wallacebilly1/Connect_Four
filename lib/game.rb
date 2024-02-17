@@ -1,8 +1,8 @@
 class Game
-  attr_reader :players
+  attr_reader :players, :board
 
-  def initialize(board)
-    @board = board
+  def initialize
+    @board = Board.new
     @players = []
   end
 
@@ -33,4 +33,8 @@ class Game
   def is_valid_column?(input)
 		%w[A B C D E F G].include?(input)
 	end
+
+  def is_column_full?(input)
+    @board.visual[input].none?(".")
+  end
 end
