@@ -29,5 +29,9 @@ RSpec.describe Message do
         it 'properly displays #win message' do
             expect(message.win(player)).to be_an_instance_of String
         end
+
+        it 'properly displays #draw message' do
+            expect(message.draw).to be_an_instance_of String
+        end
     end
 end
