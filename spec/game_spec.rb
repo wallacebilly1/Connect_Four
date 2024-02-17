@@ -40,6 +40,8 @@ RSpec.describe Game do
       end
 
       expect(game.computer_take_turn).to eq("E")
+      expect(game.computer_take_turn).to eq("E")
+      expect(game.computer_take_turn).to eq("E")
     end
   end
 
