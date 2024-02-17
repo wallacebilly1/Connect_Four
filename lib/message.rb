@@ -12,4 +12,8 @@ class Message
         "It is currently #{player}'s turn."
     end
 
+    def choose_again
+        "That is not a valid placement. Please choose again."
+    end
+
 end
