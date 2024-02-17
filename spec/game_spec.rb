@@ -26,6 +26,21 @@ RSpec.describe Game do
       valid_column = game.computer_take_turn
       expect(%w[A B C D E F G]).to include(valid_column)
     end
+
+    it 'can only choose a column that is not full' do
+      player = Player.new("Billy")
+
+      6.times do
+        game.board.update_board("A", player)
+        game.board.update_board("B", player)
+        game.board.update_board("C", player)
+        game.board.update_board("D", player)
+        game.board.update_board("F", player)
+        game.board.update_board("G", player)
+      end
+
+      expect(game.computer_take_turn).to eq("E")
+    end
   end
 
   describe '#create_players' do
