@@ -9,8 +9,9 @@ RSpec.describe Game do
       expect(game).to be_instance_of(Game)
     end
 
-    it 'has no players by default' do
-      expect(game.players).to eq([])
+    it 'has two players by default' do
+      expect(game.players[0].name).to eq("Player")
+      expect(game.players[1].name).to eq("Computer")
     end
   end
 
@@ -21,13 +22,11 @@ RSpec.describe Game do
   end
 
   describe '#create_players' do
-    it 'can create two player objects with the names Player and Computer' do
-      expect(game.players).to eq([])
-
-      game.create_players
-
-      expect(game.players[0].name).to eq ('Player')
-      expect(game.players[1].name).to eq ('Computer')
+    it 'can create two player objects' do
+      players = game.create_players
+      #require 'rspec'; binding.pry
+      expect(players[0]).to be_instance_of(Player)
+      expect(players[1]).to be_instance_of(Player)
     end
   end
 

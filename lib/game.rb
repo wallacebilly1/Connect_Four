@@ -3,13 +3,13 @@ class Game
 
   def initialize
     @board = Board.new
-    @players = []
+    @players = create_players
     @message_bot = Message.new
   end
 
   def take_turn
     # says whose turn it is
-    @message_bot.current_player_turn(current_player)
+    @message_bot.current_player_turn(current_player.name)
     # prints current state of board
     # requests a column
     # checks to see if the user input is valid
@@ -20,8 +20,9 @@ class Game
   end
 
   def create_players
-    @players << Player.new('Player')
-    @players << Player.new
+    [Player.new('Player'), Player.new]
+    # @players << Player.new('Player')
+    # @players << Player.new
   end
 
   def current_player
