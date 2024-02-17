@@ -15,10 +15,10 @@ class Game
     # requests a column
     answer = false
     until answer == true do
-        puts @message_bot.choose_column        
-        column_choice = current_player.choose_column.upcase
-        # checks to see if the user input is valid
-        answer = is_valid?(column_choice)        
+      puts @message_bot.choose_column        
+      column_choice = current_player.choose_column.upcase
+      # checks to see if the user input is valid
+      answer = is_valid?(column_choice)        
     end
 
     # if valid, applies input to board
@@ -35,8 +35,6 @@ class Game
 
   def create_players
     [Player.new('Player'), Player.new]
-    # @players << Player.new('Player')
-    # @players << Player.new
   end
 
   def current_player
@@ -52,8 +50,8 @@ class Game
   end
 
   def is_valid_column?(input)
-		%w[A B C D E F G].include?(input)
-	end
+    %w[A B C D E F G].include?(input)
+  end
 
   def is_column_full?(input)
     @board.visual[input].none?(".")

@@ -53,21 +53,21 @@ RSpec.describe Game do
   describe '#is_valid?' do
 
     it 'can check if the input is a valid column and if the column is not full' do
-        expect(game.is_valid?("H")).to be false
-        expect(game.is_valid?("A")).to be true
+      expect(game.is_valid?("H")).to be false
+      expect(game.is_valid?("A")).to be true
 
-        player = Player.new("Billy")
-        game.board.update_board("B", player)
-        game.board.update_board("B", player)
-        game.board.update_board("B", player)
+      player = Player.new("Billy")
+      game.board.update_board("B", player)
+      game.board.update_board("B", player)
+      game.board.update_board("B", player)
 
-        expect(game.is_valid?("B")).to be true
+      expect(game.is_valid?("B")).to be true
 
-        game.board.update_board("B", player)
-        game.board.update_board("B", player)
-        game.board.update_board("B", player)
+      game.board.update_board("B", player)
+      game.board.update_board("B", player)
+      game.board.update_board("B", player)
 
-        expect(game.is_valid?("B")).to be false
+      expect(game.is_valid?("B")).to be false
     end
 
     it 'can check if the input is a valid column' do
@@ -80,15 +80,15 @@ RSpec.describe Game do
 
     it 'can check if the chosen column is full' do
       player = Player.new("Billy")
-			game.board.update_board("A", player)
-			game.board.update_board("A", player)
-			game.board.update_board("A", player)
+      game.board.update_board("A", player)
+      game.board.update_board("A", player)
+      game.board.update_board("A", player)
 
       expect(game.is_column_full?("A")).to be false
 
-			game.board.update_board("A", player)
-			game.board.update_board("A", player)
-			game.board.update_board("A", player)
+      game.board.update_board("A", player)
+      game.board.update_board("A", player)
+      game.board.update_board("A", player)
 
       expect(game.is_column_full?("A")).to be true
     end
