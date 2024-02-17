@@ -9,10 +9,14 @@ class Game
 
   def take_turn
     # says whose turn it is
-    @message_bot.current_player_turn(current_player.name)
+    puts @message_bot.current_player_turn(current_player.name)
     # prints current state of board
+    puts @board.print_visual
     # requests a column
+    puts @message_bot.choose_column
+    column_choice = current_player.choose_column.upcase
     # checks to see if the user input is valid
+    is_valid?(column_choice)
     # if valid, applies input to board
     # once input is placed, checks for win conditions
     # changes current_player
@@ -31,6 +35,10 @@ class Game
 
   def change_current_player
     @players.rotate!
+  end
+
+  def is_valid?(input)
+    is_valid_column?(input) && !is_column_full?(input)
   end
 
   def is_valid_column?(input)
