@@ -16,4 +16,8 @@ class Message
         "That is not a valid placement. Please choose again."
     end
 
+    def win(player)
+        "Congratulations, #{player}! You are the CONNECT FOUR champion!"
+    end
+
 end
