@@ -10,20 +10,24 @@ RSpec.describe Message do
         end
     end
     describe '#message methods' do
-        it 'properly displays welcome message' do
+        it 'properly displays #welcome message' do
             expect(message.welcome).to be_an_instance_of String
         end
 
-        it 'properly displays choose_column message' do
+        it 'properly displays #choose_column message' do
             expect(message.choose_column).to be_an_instance_of String
         end
 
-        it 'properly displays current_player_turn message' do
+        it 'properly displays #current_player_turn message' do
             expect(message.current_player_turn("Player")).to be_an_instance_of String
         end 
 
-        it 'properly displays choose_again message' do
+        it 'properly displays #choose_again message' do
             expect(message.choose_again).to be_an_instance_of String
+        end
+
+        it 'properly displays #win message' do
+            expect(message.win(player)).to be_an_instance_of String
         end
     end
 end
