@@ -21,6 +21,30 @@ RSpec.describe Game do
     end
   end
 
+  describe '#computer_take_turn' do
+    it 'can choose a valid column' do
+      valid_column = game.computer_take_turn
+      expect(%w[A B C D E F G]).to include(valid_column)
+    end
+
+    it 'can only choose a column that is not full' do
+      player = Player.new("Billy")
+
+      6.times do
+        game.board.update_board("A", player)
+        game.board.update_board("B", player)
+        game.board.update_board("C", player)
+        game.board.update_board("D", player)
+        game.board.update_board("F", player)
+        game.board.update_board("G", player)
+      end
+
+      expect(game.computer_take_turn).to eq("E")
+      expect(game.computer_take_turn).to eq("E")
+      expect(game.computer_take_turn).to eq("E")
+    end
+  end
+
   describe '#create_players' do
     it 'can create two player objects' do
       players = game.create_players
@@ -51,7 +75,6 @@ RSpec.describe Game do
   end
 
   describe '#is_valid?' do
-
     it 'can check if the input is a valid column and if the column is not full' do
       expect(game.is_valid?("H")).to be false
       expect(game.is_valid?("A")).to be true
