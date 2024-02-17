@@ -21,12 +21,16 @@ class Game
         answer = is_valid?(column_choice)        
     end
 
-
-
     # if valid, applies input to board
+    @board.update_board(column_choice, current_player)
+    @board.print_visual
+
     # once input is placed, checks for win conditions
+
     # changes current_player
-    # loop
+    change_current_player
+    # loop    
+    take_turn
   end
 
   def create_players
