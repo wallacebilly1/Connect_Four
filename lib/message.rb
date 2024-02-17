@@ -16,7 +16,7 @@ class Message
   end
 
   def last_piece_played(last_piece)
-    "The last piece played was #{last_piece}"
+    "The last piece was played in column #{last_piece[0]}"
   end
 
   def choose_again
