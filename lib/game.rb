@@ -13,10 +13,16 @@ class Game
     # prints current state of board
     puts @board.print_visual
     # requests a column
-    puts @message_bot.choose_column
-    column_choice = current_player.choose_column.upcase
-    # checks to see if the user input is valid
-    is_valid?(column_choice)
+    answer = false
+    until answer == true do
+        puts @message_bot.choose_column        
+        column_choice = current_player.choose_column.upcase
+        # checks to see if the user input is valid
+        answer = is_valid?(column_choice)        
+    end
+
+
+
     # if valid, applies input to board
     # once input is placed, checks for win conditions
     # changes current_player
