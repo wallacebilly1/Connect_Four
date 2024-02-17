@@ -25,7 +25,11 @@ RSpec.describe Message do
 
     it 'properly displays #current_player_turn message' do
       expect(message.current_player_turn("Player")).to be_an_instance_of String
-    end 
+    end
+
+    it 'properly displays #last_piece_played message' do
+      expect(message.last_piece_played("D4")).to be_an_instance_of String
+    end
 
     it 'properly displays #choose_again message' do
       expect(message.choose_again).to be_an_instance_of String
