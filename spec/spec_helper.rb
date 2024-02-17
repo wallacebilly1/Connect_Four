@@ -7,5 +7,5 @@ require './lib/player.rb'
 require './lib/message.rb'
 
 RSpec.configure do |config|
-    config.formatter = :documentation
+  config.formatter = :documentation
 end
