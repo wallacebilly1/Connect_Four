@@ -116,4 +116,19 @@ RSpec.describe Game do
       expect(game.is_column_full?("A")).to be true
     end
   end
+
+  describe '#start' do
+
+    # it 'starts a game when p is inputted' do
+    #     game.start
+    #     expect(game.).to
+    # end
+
+    # it 'exits a game when q is inputted' do
+    #     game.start
+    #     expect(game.).to
+    # end
+
+  end
+
 end
