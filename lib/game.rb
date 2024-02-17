@@ -29,4 +29,8 @@ class Game
   def change_current_player
     @players.rotate!
   end
+
+  def is_valid_column?(input)
+		%w[A B C D E F G].include?(input)
+	end
 end
