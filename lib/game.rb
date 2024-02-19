@@ -22,12 +22,13 @@ class Game
         answer = gets.chomp.downcase
       end
     end
+    puts @board.print_visual
     while play
-      puts @board.print_visual
       take_turn
+      puts @message_bot.last_piece_played(@board.last_piece_played)
+      puts @board.print_visual
       game_over
       change_current_player
-      puts @message_bot.last_piece_played(@board.last_piece_played)
     end
   end
 
