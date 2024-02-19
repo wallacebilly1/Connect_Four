@@ -84,7 +84,19 @@ class Game
   def is_column_full?(input)
     @board.visual[input].none?(".")
   end
-  
+
+  def vertical_win?
+    count = 1
+    temp_last_piece = @board.last_piece_played
+    if temp_last_piece[1] != 0
+      while @board.visual[temp_last_piece[0]][temp_last_piece[1] -= 1] == current_player.piece 
+        count += 1
+      end
+    end
+    return true if count >= 4
+    false
+  end
+
   def horizontal_win?
     count = 1
     temp_last_piece = [@board.last_piece_played[0].ord, @board.last_piece_played[1]]
