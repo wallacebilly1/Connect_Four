@@ -10,16 +10,18 @@ class Game
 
   def start
     puts @message_bot.welcome
-    play = true   
+    play = false   
     answer = gets.chomp.downcase
+    until play
       if answer == 'q'
-        play = false
+        exit
       elsif answer == 'p'
-        play
+        play = true
       else
         puts @message_bot.invalid_command
         answer = gets.chomp.downcase
-      end    
+      end
+    end
     while play
       puts @board.print_visual
       take_turn
