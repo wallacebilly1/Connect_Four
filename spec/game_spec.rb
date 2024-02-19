@@ -146,5 +146,20 @@ RSpec.describe Game do
 
       expect(game.vertical_win?).to be true
     end
+
+    it 'can win by connecting 4 of the same piece horizontally' do
+      game.board.update_board("A", game.current_player)
+
+      expect(game.horizontal_win?).to be false
+
+      game.board.update_board("B", game.current_player)
+      game.board.update_board("D", game.current_player)
+
+      expect(game.horizontal_win?).to be false
+
+      game.board.update_board("C", game.current_player)
+
+      expect(game.horizontal_win?).to be true
+    end
   end
 end
