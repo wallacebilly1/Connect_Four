@@ -131,7 +131,7 @@ RSpec.describe Game do
 
   describe '#check_for_draw?' do
     it 'can check if there is a draw' do
-      41.times {game.add_to_turn_count}
+      42.times {game.add_to_turn_count}
       expect(game.check_for_draw?).to be false
       game.add_to_turn_count
       expect(game.check_for_draw?).to be true
