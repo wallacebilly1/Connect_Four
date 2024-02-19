@@ -188,5 +188,32 @@ RSpec.describe Game do
 
       expect(game.sw_to_ne_diagonal_win?).to be true
     end
+
+    it 'can win by connecting 4 of the same piece diagonally from se to nw' do
+      game.board.update_board("G", game.current_player)
+
+      expect(game.se_to_nw_diagonal_win?).to be false
+
+      game.board.update_board("F", game.current_player)
+
+      expect(game.se_to_nw_diagonal_win?).to be false
+
+      game.board.update_board("E", game.current_player)
+      game.board.update_board("E", game.current_player)
+      game.board.update_board("E", game.current_player)
+      game.board.update_board("D", game.current_player)
+
+      expect(game.se_to_nw_diagonal_win?).to be false
+
+      game.board.update_board("D", game.current_player)
+      game.board.update_board("D", game.current_player)
+      game.board.update_board("D", game.current_player)
+
+      expect(game.se_to_nw_diagonal_win?).to be false
+
+      game.board.update_board("F", game.current_player)
+
+      expect(game.se_to_nw_diagonal_win?).to be true
+    end
   end
 end
