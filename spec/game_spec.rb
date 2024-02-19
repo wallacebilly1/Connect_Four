@@ -118,7 +118,6 @@ RSpec.describe Game do
   end
 
   describe '#start' do
-
     # it 'starts a game when p is inputted' do
     #     game.start
     #     expect(game.).to
@@ -128,7 +127,95 @@ RSpec.describe Game do
     #     game.start
     #     expect(game.).to
     # end
-
   end
 
+  describe '#win?' do
+    it 'can win if any of the win conditions are met' do
+      # currently unable to test
+    end
+
+    it 'can win by connecting 4 of the same piece vertically' do
+      game.board.update_board("A", game.current_player)
+
+      expect(game.vertical_win?).to be false
+
+      game.board.update_board("A", game.current_player)
+      game.board.update_board("A", game.current_player)
+
+      expect(game.vertical_win?).to be false
+
+      game.board.update_board("A", game.current_player)
+
+      expect(game.vertical_win?).to be true
+    end
+
+    it 'can win by connecting 4 of the same piece horizontally' do
+      game.board.update_board("A", game.current_player)
+
+      expect(game.horizontal_win?).to be false
+
+      game.board.update_board("B", game.current_player)
+      game.board.update_board("D", game.current_player)
+
+      expect(game.horizontal_win?).to be false
+
+      game.board.update_board("C", game.current_player)
+
+      expect(game.horizontal_win?).to be true
+    end
+
+    it 'can win by connecting 4 of the same piece diagonally from sw to ne' do
+      game.board.update_board("A", game.current_player)
+
+      expect(game.sw_to_ne_diagonal_win?).to be false
+
+      game.board.update_board("B", game.current_player)
+
+      expect(game.sw_to_ne_diagonal_win?).to be false
+
+      game.board.update_board("C", game.current_player)
+      game.board.update_board("C", game.current_player)
+      game.board.update_board("C", game.current_player)
+      game.board.update_board("D", game.current_player)
+
+      expect(game.sw_to_ne_diagonal_win?).to be false
+
+      game.board.update_board("D", game.current_player)
+      game.board.update_board("D", game.current_player)
+      game.board.update_board("D", game.current_player)
+
+      expect(game.sw_to_ne_diagonal_win?).to be false
+
+      game.board.update_board("B", game.current_player)
+
+      expect(game.sw_to_ne_diagonal_win?).to be true
+    end
+
+    it 'can win by connecting 4 of the same piece diagonally from se to nw' do
+      game.board.update_board("G", game.current_player)
+
+      expect(game.se_to_nw_diagonal_win?).to be false
+
+      game.board.update_board("F", game.current_player)
+
+      expect(game.se_to_nw_diagonal_win?).to be false
+
+      game.board.update_board("E", game.current_player)
+      game.board.update_board("E", game.current_player)
+      game.board.update_board("E", game.current_player)
+      game.board.update_board("D", game.current_player)
+
+      expect(game.se_to_nw_diagonal_win?).to be false
+
+      game.board.update_board("D", game.current_player)
+      game.board.update_board("D", game.current_player)
+      game.board.update_board("D", game.current_player)
+
+      expect(game.se_to_nw_diagonal_win?).to be false
+
+      game.board.update_board("F", game.current_player)
+
+      expect(game.se_to_nw_diagonal_win?).to be true
+    end
+  end
 end
