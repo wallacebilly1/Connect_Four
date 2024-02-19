@@ -131,4 +131,13 @@ RSpec.describe Game do
 
   end
 
+  describe '#check for win and draw conditions' do
+    it 'can check if there is a draw' do
+      41.times {game.add_to_turn_count}
+      expect(game.check_for_draw).to be false
+      game.add_to_turn_count
+      expect(game.check_for_draw).to be true
+    end
+  end
+
 end

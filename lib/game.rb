@@ -1,5 +1,5 @@
 class Game
-  attr_reader :players, :board
+  attr_reader :players, :board, :turns_taken
 
   def initialize
     @board = Board.new
@@ -39,6 +39,15 @@ class Game
         computer_take_turn
     end
     @board.update_board(column_choice, current_player)
+    @turns_taken += 1
+    # still need some way to get out of the play loop when the
+    # below conditions are met
+    if @turns_taken >8 && check_for_draw
+      puts "Draw!!"
+    end
+    if @turns_taken >8 && check_for_win
+      puts "You win!"
+    end
   end
 
   def player_take_turn
@@ -80,5 +89,13 @@ class Game
 
   def is_column_full?(input)
     @board.visual[input].none?(".")
+  end
+
+  def check_for_draw?
+    @turns_taken >= 42
+  end
+
+  def add_to_turn_count
+    @turns_taken += 1
   end
 end
