@@ -23,6 +23,7 @@ class Game
     while play
         puts @board.print_visual
         take_turn
+        win?
         change_current_player
         # Move later bros
         puts @message_bot.last_piece_played(@board.last_piece_played)
@@ -39,29 +40,22 @@ class Game
         computer_take_turn
     end
     @board.update_board(column_choice, current_player)
-    @turns_taken += 1
-    # still need some way to get out of the play loop when the
-    # below conditions are met
-    if @turns_taken >8 && check_for_draw
-      puts "Draw!!"
-    end
-    if @turns_taken >8 && check_for_win
-      puts "You win!"
-    end
+    add_to_turn_count
   end
 
   def player_take_turn
     answer = false
+    column_choice = nil
     while answer == false do
       puts @message_bot.choose_column
       column_choice = current_player.choose_column.upcase
       answer = is_valid?(column_choice)  
     end
-    column_choice     
+    column_choice
   end
 
   def computer_take_turn
-    sleep(2)
+    # sleep(2)
     %w[A B C D E F G].select do |column|
       is_valid?(column)
     end.sample
@@ -82,11 +76,11 @@ class Game
   def is_valid?(input)
     is_valid_column?(input) && !is_column_full?(input)
   end
-
+  
   def is_valid_column?(input)
     %w[A B C D E F G].include?(input)
   end
-
+  
   def is_column_full?(input)
     @board.visual[input].none?(".")
   end
@@ -97,5 +91,88 @@ class Game
 
   def add_to_turn_count
     @turns_taken += 1
+  end
+
+  def win?
+    if sw_to_ne_diagonal_win? || se_to_nw_diagonal_win? || horizontal_win? || vertical_win?
+      'True'
+    else
+      'False'
+    end
+  end
+
+  def vertical_win?
+    count = 1
+    temp_last_piece = @board.last_piece_played
+    if temp_last_piece[1] != 0
+      while @board.visual[temp_last_piece[0]][temp_last_piece[1] -= 1] == current_player.piece 
+        count += 1
+      end
+    end
+    return true if count >= 4
+    false
+  end
+
+  def horizontal_win?
+    count = 1
+    temp_last_piece = [@board.last_piece_played[0].ord, @board.last_piece_played[1]]
+    if temp_last_piece[0] > 65
+      while @board.visual[(temp_last_piece[0] -= 1).chr][temp_last_piece[1]] == current_player.piece
+        count += 1
+        break if temp_last_piece[0] == 65
+      end
+    end
+
+    temp_last_piece = [@board.last_piece_played[0].ord, @board.last_piece_played[1]]
+    if temp_last_piece[0] < 71
+      while @board.visual[(temp_last_piece[0] += 1).chr][temp_last_piece[1]] == current_player.piece
+          count += 1
+          break if temp_last_piece[0] == 71
+      end
+    end
+    return true if count >= 4
+    false
+  end
+
+  def sw_to_ne_diagonal_win?
+    count = 1
+    temp_last_piece = [@board.last_piece_played[0].ord, @board.last_piece_played[1]]
+    if temp_last_piece[0] > 65
+      while @board.visual[(temp_last_piece[0] -= 1).chr][temp_last_piece[1] -= 1] == current_player.piece
+          count += 1
+          break if temp_last_piece[0] == 65
+      end
+    end
+
+    temp_last_piece = [@board.last_piece_played[0].ord, @board.last_piece_played[1]]
+    if temp_last_piece[0] < 71
+      while @board.visual[(temp_last_piece[0] += 1).chr][temp_last_piece[1] += 1] == current_player.piece
+        count += 1
+        break if temp_last_piece[0] == 71
+      end
+    end
+    return true if count >= 4
+    false
+  end
+
+  def se_to_nw_diagonal_win?
+    count = 1
+    temp_last_piece = [@board.last_piece_played[0].ord, @board.last_piece_played[1]]
+    if temp_last_piece[0] > 65
+      while @board.visual[(temp_last_piece[0] -= 1).chr][temp_last_piece[1] += 1] == current_player.piece
+          count += 1
+          break if temp_last_piece[0] == 65
+      end
+    end
+
+    temp_last_piece = [@board.last_piece_played[0].ord, @board.last_piece_played[1]]
+    if temp_last_piece[0] < 71
+      while @board.visual[(temp_last_piece[0] += 1).chr][temp_last_piece[1] -= 1] == current_player.piece
+        count += 1
+        break if temp_last_piece[0] == 71
+      end
+    end
+    return true if count >= 4
+    false
   end
 end
