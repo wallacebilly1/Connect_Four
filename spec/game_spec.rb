@@ -118,7 +118,6 @@ RSpec.describe Game do
   end
 
   describe '#start' do
-
     # it 'starts a game when p is inputted' do
     #     game.start
     #     expect(game.).to
@@ -128,10 +127,13 @@ RSpec.describe Game do
     #     game.start
     #     expect(game.).to
     # end
-
   end
 
   describe '#win?' do
+    it 'can win if any of the win conditions are met' do
+      # currently unable to test
+    end
+
     it 'can win by connecting 4 of the same piece vertically' do
       game.board.update_board("A", game.current_player)
 
