@@ -12,21 +12,21 @@ class Game
     puts @message_bot.welcome
     play = true   
     answer = gets.chomp.downcase
-        if answer == 'q'
-            play = false
-        elsif answer == 'p'
-            play
-        else
-          puts @message_bot.invalid_command
-          answer = gets.chomp.downcase
-        end    
+      if answer == 'q'
+        play = false
+      elsif answer == 'p'
+        play
+      else
+        puts @message_bot.invalid_command
+        answer = gets.chomp.downcase
+      end    
     while play
-        puts @board.print_visual
-        take_turn
-        win?
-        change_current_player
-        # Move later bros
-        puts @message_bot.last_piece_played(@board.last_piece_played)
+      puts @board.print_visual
+      take_turn
+      game_over
+      change_current_player
+      # Move later bros
+      puts @message_bot.last_piece_played(@board.last_piece_played)
     end
   end
 
@@ -85,6 +85,22 @@ class Game
     @board.visual[input].none?(".")
   end
 
+  def game_over
+    if check_for_draw?
+      puts @message_bot.draw
+      sleep(5)
+      @board = Board.new
+      @turns_taken = 0
+      start
+    elsif win?
+      puts @message_bot.win(current_player)
+      sleep(5)
+      @board = Board.new
+      @turns_taken = 0
+      start
+    end
+  end
+
   def check_for_draw?
     @turns_taken >= 42
   end
@@ -94,11 +110,7 @@ class Game
   end
 
   def win?
-    if sw_to_ne_diagonal_win? || se_to_nw_diagonal_win? || horizontal_win? || vertical_win?
-      'True'
-    else
-      'False'
-    end
+    sw_to_ne_diagonal_win? || se_to_nw_diagonal_win? || horizontal_win? || vertical_win?
   end
 
   def vertical_win?
