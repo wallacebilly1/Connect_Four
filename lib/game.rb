@@ -84,6 +84,27 @@ class Game
   def is_column_full?(input)
     @board.visual[input].none?(".")
   end
+  
+  def horizontal_win?
+    count = 1
+    temp_last_piece = [@board.last_piece_played[0].ord, @board.last_piece_played[1]]
+    if temp_last_piece[0] > 65
+      while @board.visual[(temp_last_piece[0] -= 1).chr][temp_last_piece[1]] == current_player.piece
+        count += 1
+        break if temp_last_piece[0] == 65
+      end
+    end
+
+    temp_last_piece = [@board.last_piece_played[0].ord, @board.last_piece_played[1]]
+    if temp_last_piece[0] < 71
+      while @board.visual[(temp_last_piece[0] += 1).chr][temp_last_piece[1]] == current_player.piece
+          count += 1
+          break if temp_last_piece[0] == 71
+      end
+    end
+    return true if count >= 4
+    false
+  end
 
   def sw_to_ne_diagonal_win?
     count = 1
