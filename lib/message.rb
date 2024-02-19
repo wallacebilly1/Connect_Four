@@ -1,6 +1,7 @@
 class Message
   def welcome
-    "Welcome to CONNECT FOUR\nEnter p to play, enter q to quit."
+    banner = File.read("lib/title_image.txt")
+    "Welcome to...\n #{banner} \n \nEnter p to play, enter q to quit."
   end
 
   def invalid_command
