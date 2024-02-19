@@ -27,7 +27,6 @@ class Game
       take_turn
       game_over
       change_current_player
-      # Move later bros
       puts @message_bot.last_piece_played(@board.last_piece_played)
     end
   end
@@ -104,7 +103,7 @@ class Game
   end
 
   def check_for_draw?
-    @turns_taken >= 42
+    @turns_taken > 42
   end
 
   def add_to_turn_count
