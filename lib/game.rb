@@ -85,6 +85,14 @@ class Game
     @board.visual[input].none?(".")
   end
 
+  def win?
+    if sw_to_ne_diagonal_win? || se_to_nw_diagonal_win? || horizontal_win? || vertical_win?
+      'True'
+    else
+      'False'
+    end
+  end
+
   def vertical_win?
     count = 1
     temp_last_piece = @board.last_piece_played
