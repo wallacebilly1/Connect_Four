@@ -131,4 +131,20 @@ RSpec.describe Game do
 
   end
 
+  describe '#win?' do
+    it 'can win by connecting 4 of the same piece vertically' do
+      game.board.update_board("A", game.current_player)
+
+      expect(game.vertical_win?).to be false
+
+      game.board.update_board("A", game.current_player)
+      game.board.update_board("A", game.current_player)
+
+      expect(game.vertical_win?).to be false
+
+      game.board.update_board("A", game.current_player)
+
+      expect(game.vertical_win?).to be true
+    end
+  end
 end
