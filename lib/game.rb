@@ -82,16 +82,20 @@ class Game
     if check_for_draw?
       puts @message_bot.draw
       sleep(5)
-      @board = Board.new
-      @turns_taken = 0
+      reset_game
       start
     elsif win?
       puts @message_bot.win(current_player)
       sleep(5)
-      @board = Board.new
-      @turns_taken = 0
+      reset_game
       start
     end
+  end
+
+  def reset_game
+    @board = Board.new
+    @turns_taken = 0
+    @players = create_players
   end
 
   def add_to_turn_count
