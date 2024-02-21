@@ -14,7 +14,13 @@ RSpec.describe Board do
     end
   end
 
-  describe '#print_board' do
+  describe '#create_board' do
+    it 'creates a new board' do
+      expect(board.create_board).to be_instance_of(Hash)
+    end
+  end
+
+  describe '#print_visual' do
     it 'prints the board to terminal' do
       expect(board.print_visual).to be_instance_of(String)
     end
