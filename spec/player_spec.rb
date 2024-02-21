@@ -29,8 +29,4 @@ RSpec.describe Player do
       expect(player.piece).to eq "X"
     end
   end
-
-  describe '#choose_column' do
-    # no test because it involves user input
-  end
 end

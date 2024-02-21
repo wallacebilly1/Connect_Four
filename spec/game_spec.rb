@@ -15,15 +15,10 @@ RSpec.describe Game do
     end
   end
 
-  describe '#take_turn' do
-    it 'does a lot' do
-      # 
-    end
-  end
-
   describe '#computer_take_turn' do
     it 'can choose a valid column' do
       valid_column = game.computer_take_turn
+
       expect(%w[A B C D E F G]).to include(valid_column)
     end
 
@@ -48,7 +43,7 @@ RSpec.describe Game do
   describe '#create_players' do
     it 'can create two player objects' do
       players = game.create_players
-      #require 'rspec'; binding.pry
+
       expect(players[0]).to be_instance_of(Player)
       expect(players[1]).to be_instance_of(Player)
     end
@@ -117,32 +112,19 @@ RSpec.describe Game do
     end
   end
 
-  describe '#start' do
-    # it 'starts a game when p is inputted' do
-    #     game.start
-    #     expect(game.).to
-    # end
-
-    # it 'exits a game when q is inputted' do
-    #     game.start
-    #     expect(game.).to
-    # end
-  end
-
   describe '#check_for_draw?' do
     it 'can check if there is a draw' do
       42.times {game.add_to_turn_count}
+
       expect(game.check_for_draw?).to be false
+      
       game.add_to_turn_count
+      
       expect(game.check_for_draw?).to be true
     end
   end
 
   describe '#win?' do
-    it 'can win if any of the win conditions are met' do
-      # currently unable to test
-    end
-
     it 'can win by connecting 4 of the same piece vertically' do
       game.board.update_board("A", game.current_player)
 
@@ -225,6 +207,46 @@ RSpec.describe Game do
       game.board.update_board("F", game.current_player)
 
       expect(game.se_to_nw_diagonal_win?).to be true
+    end
+  end
+
+  describe "#reset_game" do
+    it 'can reset the board' do
+        game.board.update_board("A", game.current_player)
+        game.board.update_board("E", game.current_player)
+        game.board.update_board("E", game.current_player)
+
+        expect(game.board.visual["A"][0]).to eq "X"
+        expect(game.board.visual["E"][0]).to eq "X"
+        expect(game.board.visual["E"][1]).to eq "X"
+
+        game.reset_game
+
+        expect(game.board.visual["A"][0]).to eq "."
+        expect(game.board.visual["E"][0]).to eq "."
+        expect(game.board.visual["E"][1]).to eq "."     
+    end 
+
+    it 'can reset the turns taken' do
+      game.add_to_turn_count
+
+      expect(game.turns_taken).to eq 1
+
+      game.reset_game
+
+      expect(game.turns_taken).to eq 0     
+    end 
+  end
+
+  describe '#add_to_turn_count' do
+    it 'adds to turns_taken' do
+      expect(game.turns_taken).to eq 0 
+
+      game.add_to_turn_count
+      game.add_to_turn_count
+      game.add_to_turn_count
+
+      expect(game.turns_taken).to eq 3
     end
   end
 end

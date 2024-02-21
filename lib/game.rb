@@ -2,7 +2,7 @@ require "./lib/game_rules"
 
 class Game
   include GameRules
-  attr_reader :players, :board, :turns_taken
+  attr_reader :board, :players, :turns_taken
 
   def initialize
     @board = Board.new
@@ -26,13 +26,17 @@ class Game
       end
     end
     puts @board.print_visual
-    while play
+    play_loop
+  end
+
+  def play_loop
+    loop do
       take_turn
       puts @message_bot.last_piece_played(@board.last_piece_played)
       puts @board.print_visual
       game_over
       change_current_player
-    end
+    end    
   end
 
   def take_turn
@@ -60,7 +64,7 @@ class Game
   end
 
   def computer_take_turn
-    # sleep(2)
+    sleep(2)
     %w[A B C D E F G].select do |column|
       is_valid?(column)
     end.sample
