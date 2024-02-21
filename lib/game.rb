@@ -60,7 +60,7 @@ class Game
   end
 
   def computer_take_turn
-    # sleep(2)
+    sleep(2)
     %w[A B C D E F G].select do |column|
       is_valid?(column)
     end.sample
