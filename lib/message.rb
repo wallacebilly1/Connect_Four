@@ -25,7 +25,7 @@ class Message
   end
 
   def win(player)
-    "Congratulations, #{player.name}! You are the CONNECT FOUR champion!"
+    "Congratulations, #{player.name}! You are the CONNECT FOUR champion!\n\n\n\n\n"
   end
 
   def draw
