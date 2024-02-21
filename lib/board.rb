@@ -2,17 +2,12 @@ class Board
   attr_reader :visual, :last_piece_played
 
   def initialize
-    @visual = Hash.new { |hash, key| hash[key] = Array.new(6, '.') }
-    # @visual = {
-    #   "A" => %w[. . . . . .],
-    #   "B" => %w[. . . . . .],
-    #   "C" => %w[. . . . . .],
-    #   "D" => %w[. . . . . .],
-    #   "E" => %w[. . . . . .],
-    #   "F" => %w[. . . . . .],
-    #   "G" => %w[. . . . . .]
-    # }
+    @visual = create_board
     @last_piece_played = last_piece_played
+  end
+
+  def create_board
+    Hash.new { |hash, key| hash[key] = Array.new(6, '.') }
   end
 
   def print_visual
