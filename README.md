@@ -7,7 +7,7 @@ Connect Four is a classic board game where players take turns trying to create a
 ## Define the Relationship
 Click [here](https://docs.google.com/document/d/1PoO11jP4w_6_PDE6iA2xUt1byjFnKn1iTOVzOwEFruo/edit) to view our DTR
 
-![Freeform Collaboration Screenshot](https://gist.github.com/assets/142369918/4ddecdc8-20bb-4737-9dfc-6173470a2b00)
+[Freeform Collaboration Screenshot](https://gist.github.com/assets/142369918/4ddecdc8-20bb-4737-9dfc-6173470a2b00)
 
 ## Written Reflection
 
